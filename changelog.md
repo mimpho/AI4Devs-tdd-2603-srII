@@ -44,6 +44,30 @@ Proyecto completado segun alcance TDD (tests unitarios):
 - HU2: 19 tests unitarios ✅
 - Total: 26 tests en verde ✅
 
+Validacion final ejecutada:
+- Frontend: 7/7 tests en verde
+- Backend: 19/19 tests en verde
+
+## Decision de coexistencia de suites
+
+Se mantiene de forma intencional una estrategia dual:
+
+1. Suite consolidada MTT (requisito de entrega del ejercicio):
+   - `frontend/src/tests/tests-MTT-frontend.test.js`
+   - `backend/src/tests/tests-MTT-backend.test.ts`
+2. Suite unitaria por componente/capa (mantenimiento tecnico):
+   - `frontend/src/components/AddCandidateForm.test.js`
+   - `backend/src/routes/candidateRoutes.test.ts`
+   - `backend/src/application/services/candidateService.test.ts`
+   - `backend/src/domain/models/Candidate.test.ts`
+   - `backend/src/domain/models/Education.test.ts`
+   - `backend/src/domain/models/WorkExperience.test.ts`
+   - `backend/src/domain/models/Resume.test.ts`
+
+Motivacion:
+- Los consolidados garantizan trazabilidad directa con lo pedido en la entrega.
+- Los tests por componente/capa tienen mayor valor para diagnostico y mantenimiento evolutivo.
+
 Fuera de alcance (no implementado):
 - HU2-07: Tests e2e de integracion backend
 - Edge cases y validaciones en limites
@@ -59,3 +83,9 @@ Fuera de alcance (no implementado):
 
 3. backend/jest.config.js
    - Configuracion de Jest con ts-jest para ejecutar tests TypeScript del backend.
+
+4. frontend/jest.config.js
+   - Configuracion local de Jest para ejecutar tests unitarios de frontend.
+
+5. frontend/babel.config.js
+   - Configuracion de Babel para transformar JSX durante la ejecucion de tests en frontend.
